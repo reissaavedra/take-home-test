@@ -23,15 +23,11 @@ class App extends Component {
   }
 
   setFetchDataCommits = () => {
-    // HandleApiCommits
-    //   .then((data)=>{
-    //     this.setState({fetchDataCommits: data});
-    //     this.forceUpdate();
-    //   })
-    axios.get(`http://localhost:80/commits`).then(res => {
-      console.log(res.data);
+    axios.get(`http://localhost:80/commits`).then(result => {
+      console.log(result.data);
+      this.setState({fetchDataCommits: result.data});
+      this.forceUpdate();
     });
-
   }
 
   componentDidMount(){
