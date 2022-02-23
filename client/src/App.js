@@ -49,8 +49,12 @@ class App extends Component {
         this.setState({
           fetchDataCommits : result
         });
-      });
-      console.log(this.state.fetchDataCommits)
+      })
+      .then(
+        console.log(this.state.fetchDataCommits)
+      )
+      ;
+      
   }
 
   render(){
