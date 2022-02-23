@@ -5,53 +5,75 @@
 import './App.css';
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button, Container, Card, Row } from 'react-bootstrap';
+import { Button, Card, Container, Row } from 'react-bootstrap';
+import HandleApiUser from './HandleFetchUser';
+import HandleApiRepo from './HandleFetchRepo';
+import HandleApiCommits from './HandleFetchCommits';
+import CardCommit from './Components/CardCommit';
 
 class App extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        fetchData: []
+        fetchDataUser: {},
+        fetchDataCommits: [],
+        fetchDataRepo: {},
       }
   }
 
   componentDidMount(){
-    axios.get("")
-        .then((response) => {
-          this.setState({
-            fetchData: response.data
-          })
-        })
+    HandleApiUser
+      .then((result)=>{
+        this.setState({
+          fetchDataUser : result
+        });
+        console.log(result);
+      })
+
+    HandleApiRepo
+      .then((result)=>{
+        this.setState({
+          fetchDataRepo : result
+        });
+        console.log(result);
+      })
+
+    HandleApiCommits
+      .then((result)=>{
+        this.setState({
+          fetchDataCommits : result
+        });
+        console.log(result);
+      })
   }
 
-  submit = () => {
-    axios.post('', this.state)
-        .then(() => {alert('success')})
-    console.log(this.state)
-    document.location.reload();
+  refresh = () => {
+    HandleApiCommits
+      .then((result)=>{
+        this.setState({
+          fetchDataCommits : result
+        });
+        console.log(result);
+      });
+      this.render();
   }
 
   render(){
-    let card = this.state.fetchData.map((val, key) => {
-      return(
-        <React.Fragment>
-          <Card style={{width: '18rem'}} className='m-2'>
-            <Card.Body>
-              <Card.Title></Card.Title>
-              <Card.Text></Card.Text>
-            </Card.Body>
-          </Card>
-        </React.Fragment>
+    let card = this.state.fetchDataCommits.map((val, key) => {
+      return (
+          <React.Fragment>
+              <CardCommit data={val}></CardCommit>
+          </React.Fragment>
       )
-    })
-
+  })
     return(
       <div className='App'>
-        <h1>Dockerized App</h1>
+        <img src={this.state.fetchDataUser.avatar_url} className='avatar'></img>
+        <h1>{this.state.fetchDataRepo.full_name}</h1>
         <div className='form'>
         </div>
-        <Button className='my-2' variant='primary' onClick={this.submit}>
-          Submit
+        <Button className='my-2' variant='primary' onClick={this.refresh}>
+          Refresh
         </Button>
         <Container>
           <Row>

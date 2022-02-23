@@ -1,0 +1,26 @@
+version: '3.8'
+
+# x-common-variables: &common-variables
+#   MYSQL_DATABASE: books
+
+services:
+  client:
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - "3000:3000"
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: "./python-server"
+    volumes:
+      - ./python-server:/app
+    ports:
+      - "80:80"

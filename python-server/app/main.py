@@ -1,7 +1,7 @@
 from email import message
 from traceback import print_tb
 from fastapi import FastAPI
-from time import time
+from fastapi.middleware.cors import CORSMiddleware
 import httpx
 from typing import Optional, Set
 from pydantic import BaseModel
@@ -16,35 +16,49 @@ BASE_URL = 'https://api.github.com/'
 headers = {'user-agent': 'python-server/0.0.1'}
 params = {}
 
+# origins = [
+#     "http://localhost",
+#     "http://localhost:80",
+#     "http://17.172.0.1:80",
+#     "http://0.0.0.0",
+# ]
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 @app.get('/user_info')
 async def get_user_info():
     with httpx.Client(base_url=BASE_URL) as client:
-        result = client.get(f"/users/{USER}")
+        result = client.get(f"/users/{USER}").json()
         info_user = {
-                'login': result['login'],
-                'avatar_url': result['avatar_url'],
-                'html_url': result['html_url'],
-                'url': result['url'],
-                'name': result['name'],
-                'location': result['location'],
-                'bio': result['bio'],
-                'followers': result['followers']
+            'login': result['login'],
+            'avatar_url': result['avatar_url'],
+            'html_url': result['html_url'],
+            'name': result['name'],
+            'location': result['location'],
+            'bio': result['bio']
         }
         return info_user
 
 @app.get('/repo_info')
 async def get_repo_info():
     with httpx.Client(base_url=BASE_URL) as client:
-        result = client.get(f"/repos/{USER}/{REPO}")
+        result = client.get(f"/repos/{USER}/{REPO}").json()
         info_repo = {
             'id': result['id'],
-            'name': result['name'],
             'full_name': result['full_name'],
             'ssh_url': result['ssh_url'],
-            'name': result['name'],
             'topics': result['topics'],
+            'license': result['license'],
             'pushed_at': result['pushed_at'],
-            'license': result['license']['name'],
             'created_at': result['created_at']
         }
         return info_repo
