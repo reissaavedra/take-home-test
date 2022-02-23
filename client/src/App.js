@@ -50,7 +50,6 @@ class App extends Component {
           fetchDataCommits : result
         });
       });
-      // this.render();
       console.log(this.state.fetchDataCommits)
   }
 

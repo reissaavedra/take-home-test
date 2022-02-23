@@ -1,37 +1,36 @@
 from email import message
 from traceback import print_tb
 from fastapi import FastAPI
+from fastapi.middleware import Middleware
 from fastapi.middleware.cors import CORSMiddleware
 import httpx
 from typing import Optional, Set
 from pydantic import BaseModel
 import json
 
-app = FastAPI()
-
 USER = 'reissaavedra'
 REPO = 'take-home-test'
 BASE_URL = 'https://api.github.com/'
 
-headers = {'user-agent': 'python-server/0.0.1'}
-params = {}
-
-# origins = [
-#     "http://localhost",
-#     "http://localhost:80",
-#     "http://17.172.0.1:80",
-#     "http://0.0.0.0",
-# ]
+origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://17.172.0.1:3000",
+]
 
 origins = ["*"]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+middleware = [
+    Middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=['*'],
+        allow_headers=['*']
+    )
+]
+
+app = FastAPI(middleware=middleware)
 
 
 @app.get('/user_info')
