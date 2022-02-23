@@ -3,12 +3,14 @@
 /* eslint-disable no-restricted-globals */
 
 import './App.css';
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import HandleApiUser from './HandleFetchUser';
 import HandleApiRepo from './HandleFetchRepo';
 import HandleApiCommits from './HandleFetchCommits';
 import CardCommit from './Components/CardCommit';
+
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -18,15 +20,18 @@ class App extends Component {
         fetchDataCommits: [],
         fetchDataRepo: {},
       }
-      this.setFetchDataCommits = this.setFetchDataCommits.bind(this);
   }
 
-  setFetchDataCommits(){
-    HandleApiCommits
-      .then((data)=>{
-        this.setState({fetchDataCommits: data});
-        this.forceUpdate();
-      })
+  setFetchDataCommits = () => {
+    // HandleApiCommits
+    //   .then((data)=>{
+    //     this.setState({fetchDataCommits: data});
+    //     this.forceUpdate();
+    //   })
+    axios.get(`http://localhost:80/commits`).then(res => {
+      console.log(res.data);
+    });
+
   }
 
   componentDidMount(){
@@ -51,6 +56,7 @@ class App extends Component {
         });
       })
   }
+
   render(){
     let card = this.state.fetchDataCommits.map((val, key) => {
       return (
