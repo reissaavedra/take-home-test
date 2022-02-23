@@ -45,9 +45,9 @@ class App extends Component {
 
   refresh = () => {
     HandleApiCommits
-      .then((result)=>{
+      .then((result) => {
         this.setState({
-          fetchDataCommits : result
+          fetchDataCommits: result
         });
       })
       .then(
