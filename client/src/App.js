@@ -3,7 +3,7 @@
 /* eslint-disable no-restricted-globals */
 
 import './App.css';
-import React, { Component,useState } from 'react';
+import React, { Component } from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import HandleApiUser from './HandleFetchUser';
 import HandleApiRepo from './HandleFetchRepo';
@@ -11,6 +11,8 @@ import HandleApiCommits from './HandleFetchCommits';
 import CardCommit from './Components/CardCommit';
 
 import axios from 'axios';
+import InfoUser from './Components/InfoUser';
+import axiosInstance from './Components/AxiosInstance';
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +25,7 @@ class App extends Component {
   }
 
   setFetchDataCommits = () => {
-    axios.get(`http://localhost:80/commits`).then(result => {
+    axiosInstance.get(`/commits`).then(result => {
       console.log(result.data);
       this.setState({fetchDataCommits: result.data});
       this.forceUpdate();
@@ -54,22 +56,19 @@ class App extends Component {
   }
 
   render(){
-    let card = this.state.fetchDataCommits.map((val, key) => {
+    let card = this.state.fetchDataCommits.reverse().map((val, key) => {
       return (
           <React.Fragment>
-              <CardCommit data={val} key={val.sha}></CardCommit>
+              <CardCommit data={val} keyValue={key}></CardCommit>
           </React.Fragment>
       )
     })
     return(
       <div className='App'>
-        <img src={this.state.fetchDataUser.avatar_url} className='avatar'></img>
         <h1>{this.state.fetchDataRepo.full_name}</h1>
-        <div className='info_user'>
-          <h4>{this.state.fetchDataUser.name}</h4>
-          <h4>{this.state.fetchDataUser.location}</h4>
-          {this.state.fetchDataUser.bio}
-        </div><br></br>
+        <InfoUser dataUser={this.state.fetchDataUser}>
+        </InfoUser>
+        <br></br>
         <Button className='my-2' variant='primary' onClick={this.setFetchDataCommits}>
           Refresh
         </Button>

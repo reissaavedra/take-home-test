@@ -1,4 +1,4 @@
-import axiosInstance from './AxiosInstance';
+import axiosInstance from './Components/AxiosInstance';
 
 const HandleApiCommits = 
     axiosInstance
