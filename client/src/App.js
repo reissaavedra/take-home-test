@@ -4,8 +4,7 @@
 
 import './App.css';
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Button, Card, Container, Row } from 'react-bootstrap';
+import { Button, Container, Row } from 'react-bootstrap';
 import HandleApiUser from './HandleFetchUser';
 import HandleApiRepo from './HandleFetchRepo';
 import HandleApiCommits from './HandleFetchCommits';
@@ -27,7 +26,6 @@ class App extends Component {
         this.setState({
           fetchDataUser : result
         });
-        console.log(result);
       })
 
     HandleApiRepo
@@ -35,7 +33,6 @@ class App extends Component {
         this.setState({
           fetchDataRepo : result
         });
-        console.log(result);
       })
 
     HandleApiCommits
@@ -43,7 +40,6 @@ class App extends Component {
         this.setState({
           fetchDataCommits : result
         });
-        console.log(result);
       })
   }
 
@@ -53,25 +49,28 @@ class App extends Component {
         this.setState({
           fetchDataCommits : result
         });
-        console.log(result);
       });
-      this.render();
+      // this.render();
+      console.log(this.state.fetchDataCommits)
   }
 
   render(){
     let card = this.state.fetchDataCommits.map((val, key) => {
       return (
           <React.Fragment>
-              <CardCommit data={val}></CardCommit>
+              <CardCommit data={val} key={val.sha}></CardCommit>
           </React.Fragment>
       )
-  })
+    })
     return(
       <div className='App'>
         <img src={this.state.fetchDataUser.avatar_url} className='avatar'></img>
         <h1>{this.state.fetchDataRepo.full_name}</h1>
-        <div className='form'>
-        </div>
+        <div className='info_user'>
+          <h4>{this.state.fetchDataUser.name}</h4>
+          <h4>{this.state.fetchDataUser.location}</h4>
+          {this.state.fetchDataUser.bio}
+        </div><br></br>
         <Button className='my-2' variant='primary' onClick={this.refresh}>
           Refresh
         </Button>

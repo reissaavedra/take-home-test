@@ -71,6 +71,7 @@ async def get_commits():
         results = client.get(f"/repos/{USER}/{REPO}/commits").json()
         for raw in results:
             info_commit = {
+                'node_id': raw['node_id'],
                 'sha': raw['sha'],
                 'commit': raw['commit'],
                 'html_url': raw['html_url'],

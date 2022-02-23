@@ -42,13 +42,18 @@
   justify-content: center;
 }
 
+.info_user{
+  display: inline-block;
+  justify-content: center;
+}
+
 .form input{
   width: 250px;
   margin: 10px;
 }
 
 .avatar{
-  width: 130px;
+  width: 110px;
   margin: 10px;
   border-radius: 50%;
 }
