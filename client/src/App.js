@@ -18,6 +18,15 @@ class App extends Component {
         fetchDataCommits: [],
         fetchDataRepo: {},
       }
+      this.setFetchDataCommits = this.setFetchDataCommits.bind(this);
+  }
+
+  setFetchDataCommits(){
+    HandleApiCommits
+      .then((data)=>{
+        this.setState({fetchDataCommits: data});
+        this.forceUpdate();
+      })
   }
 
   componentDidMount(){
@@ -42,18 +51,6 @@ class App extends Component {
         });
       })
   }
-
-  refresh = async () => {
-    await HandleApiCommits
-      .then((data)=>{
-        // this.setState({
-        //   fetchDataCommits: result
-        // });
-        console.log(data)
-      })
-      
-  }
-
   render(){
     let card = this.state.fetchDataCommits.map((val, key) => {
       return (
@@ -71,7 +68,7 @@ class App extends Component {
           <h4>{this.state.fetchDataUser.location}</h4>
           {this.state.fetchDataUser.bio}
         </div><br></br>
-        <Button className='my-2' variant='primary' onClick={this.refresh}>
+        <Button className='my-2' variant='primary' onClick={this.setFetchDataCommits}>
           Refresh
         </Button>
         <Container>
