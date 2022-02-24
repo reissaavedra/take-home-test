@@ -243,7 +243,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>pytest_report_test.html</h1>
-    <p>Report generated on 24-Feb-2022 at 05:41:07 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 24-Feb-2022 at 06:28:04 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -259,8 +259,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.12</td></tr></table>
     <h2>Summary</h2>
-    <p>4 tests ran in 3.07 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">2 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>4 tests ran in 2.36 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -271,24 +271,6 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
-        <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">app/test_main.py::test_get_repo_info</td>
-          <td class="col-duration">0.81</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">def test_get_repo_info():<br/>&gt;       response = client.get(&quot;/repo_info&quot;)<br/><br/>app/test_main.py:18: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/usr/local/lib/python3.8/site-packages/requests/sessions.py:542: in get<br/>    return self.request(&#x27;GET&#x27;, url, **kwargs)<br/>/usr/local/lib/python3.8/site-packages/starlette/testclient.py:415: in request<br/>    return super().request(<br/>/usr/local/lib/python3.8/site-packages/requests/sessions.py:529: in request<br/>    resp = self.send(prep, **send_kwargs)<br/>/usr/local/lib/python3.8/site-packages/requests/sessions.py:645: in send<br/>    r = adapter.send(request, **kwargs)<br/>/usr/local/lib/python3.8/site-packages/starlette/testclient.py:243: in send<br/>    raise exc from None<br/>/usr/local/lib/python3.8/site-packages/starlette/testclient.py:240: in send<br/>    loop.run_until_complete(self.app(scope, receive, send))<br/>/usr/local/lib/python3.8/asyncio/base_events.py:616: in run_until_complete<br/>    return future.result()<br/>/usr/local/lib/python3.8/site-packages/fastapi/applications.py:208: in __call__<br/>    await super().__call__(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/applications.py:112: in __call__<br/>    await self.middleware_stack(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/middleware/errors.py:181: in __call__<br/>    raise exc from None<br/>/usr/local/lib/python3.8/site-packages/starlette/middleware/errors.py:159: in __call__<br/>    await self.app(scope, receive, _send)<br/>/usr/local/lib/python3.8/site-packages/starlette/middleware/cors.py:78: in __call__<br/>    await self.app(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/exceptions.py:82: in __call__<br/>    raise exc from None<br/>/usr/local/lib/python3.8/site-packages/starlette/exceptions.py:71: in __call__<br/>    await self.app(scope, receive, sender)<br/>/usr/local/lib/python3.8/site-packages/starlette/routing.py:580: in __call__<br/>    await route.handle(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/routing.py:241: in handle<br/>    await self.app(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/routing.py:52: in app<br/>    response = await func(request)<br/>/usr/local/lib/python3.8/site-packages/fastapi/routing.py:226: in app<br/>    raw_response = await run_endpoint_function(<br/>/usr/local/lib/python3.8/site-packages/fastapi/routing.py:159: in run_endpoint_function<br/>    return await dependant.call(**values)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>    @app.get(&#x27;/repo_info&#x27;)<br/>    async def get_repo_info():<br/>        with httpx.Client(base_url=BASE_URL) as client:<br/>            result = client.get(f&quot;/repos/{USER}/{REPO}&quot;).json()<br/>            info_repo = {<br/>&gt;               &#x27;id&#x27;: result[&#x27;id&#x27;],<br/>                &#x27;full_name&#x27;: result[&#x27;full_name&#x27;],<br/>                &#x27;ssh_url&#x27;: result[&#x27;ssh_url&#x27;],<br/>                &#x27;topics&#x27;: result[&#x27;topics&#x27;],<br/>                &#x27;license&#x27;: result[&#x27;license&#x27;],<br/>                &#x27;pushed_at&#x27;: result[&#x27;pushed_at&#x27;],<br/>                &#x27;created_at&#x27;: result[&#x27;created_at&#x27;]<br/>            }<br/><span class="error">E           KeyError: &#x27;id&#x27;</span><br/><br/>app/main.py:58: KeyError<br/></div></td></tr></tbody>
-      <tbody class="failed results-table-row">
-        <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">app/test_main.py::test_get_commits</td>
-          <td class="col-duration">0.86</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">def test_get_commits():<br/>&gt;       response = client.get(&quot;/commits&quot;)<br/><br/>app/test_main.py:23: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/usr/local/lib/python3.8/site-packages/requests/sessions.py:542: in get<br/>    return self.request(&#x27;GET&#x27;, url, **kwargs)<br/>/usr/local/lib/python3.8/site-packages/starlette/testclient.py:415: in request<br/>    return super().request(<br/>/usr/local/lib/python3.8/site-packages/requests/sessions.py:529: in request<br/>    resp = self.send(prep, **send_kwargs)<br/>/usr/local/lib/python3.8/site-packages/requests/sessions.py:645: in send<br/>    r = adapter.send(request, **kwargs)<br/>/usr/local/lib/python3.8/site-packages/starlette/testclient.py:243: in send<br/>    raise exc from None<br/>/usr/local/lib/python3.8/site-packages/starlette/testclient.py:240: in send<br/>    loop.run_until_complete(self.app(scope, receive, send))<br/>/usr/local/lib/python3.8/asyncio/base_events.py:616: in run_until_complete<br/>    return future.result()<br/>/usr/local/lib/python3.8/site-packages/fastapi/applications.py:208: in __call__<br/>    await super().__call__(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/applications.py:112: in __call__<br/>    await self.middleware_stack(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/middleware/errors.py:181: in __call__<br/>    raise exc from None<br/>/usr/local/lib/python3.8/site-packages/starlette/middleware/errors.py:159: in __call__<br/>    await self.app(scope, receive, _send)<br/>/usr/local/lib/python3.8/site-packages/starlette/middleware/cors.py:78: in __call__<br/>    await self.app(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/exceptions.py:82: in __call__<br/>    raise exc from None<br/>/usr/local/lib/python3.8/site-packages/starlette/exceptions.py:71: in __call__<br/>    await self.app(scope, receive, sender)<br/>/usr/local/lib/python3.8/site-packages/starlette/routing.py:580: in __call__<br/>    await route.handle(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/routing.py:241: in handle<br/>    await self.app(scope, receive, send)<br/>/usr/local/lib/python3.8/site-packages/starlette/routing.py:52: in app<br/>    response = await func(request)<br/>/usr/local/lib/python3.8/site-packages/fastapi/routing.py:226: in app<br/>    raw_response = await run_endpoint_function(<br/>/usr/local/lib/python3.8/site-packages/fastapi/routing.py:159: in run_endpoint_function<br/>    return await dependant.call(**values)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>    @app.get(&#x27;/commits&#x27;)<br/>    async def get_commits():<br/>        with httpx.Client(base_url=BASE_URL) as client:<br/>            response=[]<br/>            results = client.get(f&quot;/repos/{USER}/{REPO}/commits&quot;).json()<br/>            for raw in results:<br/>                info_commit = {<br/>&gt;                   &#x27;node_id&#x27;: raw[&#x27;node_id&#x27;],<br/>                    &#x27;sha&#x27;: raw[&#x27;sha&#x27;],<br/>                    &#x27;commit&#x27;: raw[&#x27;commit&#x27;],<br/>                    &#x27;html_url&#x27;: raw[&#x27;html_url&#x27;],<br/>                    &#x27;author&#x27;: raw[&#x27;author&#x27;],<br/>                }<br/><span class="error">E               TypeError: string indices must be integers</span><br/><br/>app/main.py:76: TypeError<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
@@ -302,7 +284,25 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">app/test_main.py::test_get_user_info</td>
-          <td class="col-duration">0.86</td>
+          <td class="col-duration">0.71</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">app/test_main.py::test_get_repo_info</td>
+          <td class="col-duration">0.80</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">app/test_main.py::test_get_commits</td>
+          <td class="col-duration">0.61</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
