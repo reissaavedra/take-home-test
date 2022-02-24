@@ -9,8 +9,6 @@ import HandleApiUser from './HandleFetchUser';
 import HandleApiRepo from './HandleFetchRepo';
 import HandleApiCommits from './HandleFetchCommits';
 import CardCommit from './Components/CardCommit';
-
-import axios from 'axios';
 import InfoUser from './Components/InfoUser';
 import axiosInstance from './Components/AxiosInstance';
 
@@ -25,8 +23,8 @@ class App extends Component {
   }
 
   setFetchDataCommits = () => {
-    axiosInstance.get(`/commits`).then(result => {
-      console.log(result.data);
+    axiosInstance.get(`/commits`)
+    .then(result => {
       this.setState({fetchDataCommits: result.data});
       this.forceUpdate();
     });
