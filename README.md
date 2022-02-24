@@ -1,6 +1,6 @@
-# Take Home Project
+# Take Home Test Project
 
-This is a project for FullTimeForce job application.
+This is a project for a job application.
 
 ## Installation and deployment
 
