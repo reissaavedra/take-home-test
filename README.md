@@ -10,19 +10,19 @@ Use the official guide for docker installation:
 - <https://docs.docker.com/engine/install/>
 - <https://docs.docker.com/compose/install/>
 
-After, use the following command for run:
+Use the following command for run:
 
 ```terminal
     $docker-compose build --no-cache && docker-compose up -d
 ```
 
+In browser open <http://localhost:3000/>
+
 ## Unit Testing
 
 Unit test report is generated in a html file:
 
-![alt text](https://github.com/reissaavedra/take-home-test/blob/main/image.jpg?raw=true)
-
-
+![alt text](https://raw.githubusercontent.com/reissaavedra/take-home-test/main/report_test.png)
 
 ## Contributing
 
