@@ -1,4 +1,5 @@
 import { Component } from "react";
+
 export default class InfoUser extends Component{
     render(){
         return <div className='info_user' >
